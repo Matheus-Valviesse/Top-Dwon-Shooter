@@ -1,11 +1,21 @@
-[gd_scene format=3 uid="uid://e35smjp3yxf0"]
+[gd_scene load_steps=3 format=3 uid="uid://e35smjp3yxf0"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_e0u4j"]
+[ext_resource type="Texture2D" uid="uid://b8gxsv6p57dx2" path="res://player/plague_doctor.png" id="2_43bbi"]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_e0u4j")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_43bbi")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
 [node name="Arm" type="CollisionShape2D" parent="."]
 
 [node name="Hand" type="CollisionShape2D" parent="Arm"]
+
+[node name="item_area_colision" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="item_area_colision"]
