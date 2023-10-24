@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://e35smjp3yxf0"]
+[gd_scene load_steps=6 format=3 uid="uid://e35smjp3yxf0"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_e0u4j"]
 [ext_resource type="Texture2D" uid="uid://b8gxsv6p57dx2" path="res://player/plague_doctor.png" id="2_43bbi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f6ba"]
+radius = 5.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkwit"]
+size = Vector2(3, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed265"]
+size = Vector2(2, 2)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
@@ -11,10 +21,17 @@ script = ExtResource("1_e0u4j")
 texture = ExtResource("2_43bbi")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.333333, 7)
+shape = SubResource("CapsuleShape2D_2f6ba")
 
 [node name="Arm" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 8.66667)
+shape = SubResource("RectangleShape2D_pkwit")
+debug_color = Color(0.858824, 0, 0.313726, 0.419608)
 
 [node name="Hand" type="CollisionShape2D" parent="Arm"]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_ed265")
 
 [node name="item_area_colision" type="Area2D" parent="."]
 
