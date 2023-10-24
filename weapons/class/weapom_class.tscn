@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgeopa0a8rjfh"]
+
+[ext_resource type="Script" path="res://weapons/class/weapom_class.gd" id="1_vsycm"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_vsycm")
+
+[node name="Capsule_spawn" type="CollisionShape2D" parent="."]
+
+[node name="Weapon_colision" type="CollisionShape2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Animation" type="AnimationPlayer" parent="."]
