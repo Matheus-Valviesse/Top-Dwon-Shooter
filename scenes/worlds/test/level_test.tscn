@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmwp74v5go1ih"]
+[gd_scene load_steps=9 format=3 uid="uid://dmwp74v5go1ih"]
 
 [ext_resource type="Texture2D" uid="uid://dcakkpvu70drn" path="res://assets/jawbreaker_tiles.png" id="1_ipxre"]
 [ext_resource type="PackedScene" uid="uid://e35smjp3yxf0" path="res://player/player.tscn" id="2_2x8r8"]
 [ext_resource type="PackedScene" uid="uid://c3wjid0v5e51n" path="res://weapons/Pistola_01/pistol.tscn" id="3_jpsiv"]
+[ext_resource type="PackedScene" uid="uid://6dty25s4o1i7" path="res://weapons/Rifle_01/assault_rifle.tscn" id="4_6fg25"]
+[ext_resource type="PackedScene" uid="uid://128rmudbj72o" path="res://weapons/Shoot-gun_01/combat_shoot-gun.tscn" id="5_nwe6w"]
+[ext_resource type="PackedScene" uid="uid://dwoaqu7g8j5md" path="res://scenes/Hud/hud.tscn" id="6_v6hmy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lprlq"]
 texture = ExtResource("1_ipxre")
@@ -97,4 +100,11 @@ position = Vector2(59, 20)
 
 [node name="Pistol" parent="." instance=ExtResource("3_jpsiv")]
 position = Vector2(176, 165)
-scale = Vector2(2, 2)
+
+[node name="Area2D" parent="." instance=ExtResource("4_6fg25")]
+position = Vector2(332, 182)
+
+[node name="Combat-Shoot-gun" parent="." instance=ExtResource("5_nwe6w")]
+position = Vector2(289, 96)
+
+[node name="Hud" parent="." instance=ExtResource("6_v6hmy")]
