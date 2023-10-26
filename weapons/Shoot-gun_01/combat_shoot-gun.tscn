@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://128rmudbj72o"]
+
+[ext_resource type="PackedScene" uid="uid://bgeopa0a8rjfh" path="res://weapons/class/weapom_class.tscn" id="1_vgdhw"]
+[ext_resource type="Texture2D" uid="uid://dpln3au0njl46" path="res://weapons/Shoot-gun_01/shoot-gun.png" id="2_0jn5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mwen"]
+size = Vector2(1.75, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b23e"]
+size = Vector2(2.6875, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xia0s"]
+size = Vector2(36.5, 15)
+
+[node name="Combat-Shoot-gun" instance=ExtResource("1_vgdhw")]
+
+[node name="Bullet_spawn" parent="." index="0"]
+position = Vector2(16.625, 0.5)
+shape = SubResource("RectangleShape2D_8mwen")
+debug_color = Color(0.984314, 0, 0.352941, 0.419608)
+
+[node name="Capsule_spawn" parent="." index="1"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_2b23e")
+debug_color = Color(0.615686, 0.537255, 0, 0.419608)
+
+[node name="Weapon_colision" parent="." index="2"]
+position = Vector2(0.25, 2.5)
+shape = SubResource("RectangleShape2D_xia0s")
+
+[node name="Sprite" parent="." index="3"]
+texture = ExtResource("2_0jn5b")
