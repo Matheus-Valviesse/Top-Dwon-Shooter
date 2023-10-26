@@ -3,7 +3,7 @@ extends Area2D
 class_name Weapon
 
 var Bullet = preload("res://bullets/bullet.tscn")
-var capsule = preload("res://capsule.tscn")
+var capsule = preload("res://bullets/capsule.tscn")
 
 var weapon
 var bulletSpawn 

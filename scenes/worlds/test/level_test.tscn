@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmwp74v5go1ih"]
+[gd_scene load_steps=6 format=3 uid="uid://dmwp74v5go1ih"]
 
 [ext_resource type="Texture2D" uid="uid://dcakkpvu70drn" path="res://assets/jawbreaker_tiles.png" id="1_ipxre"]
 [ext_resource type="PackedScene" uid="uid://e35smjp3yxf0" path="res://player/player.tscn" id="2_2x8r8"]
+[ext_resource type="PackedScene" uid="uid://c3wjid0v5e51n" path="res://weapons/Pistola_01/pistol.tscn" id="3_jpsiv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lprlq"]
 texture = ExtResource("1_ipxre")
@@ -93,3 +94,7 @@ layer_0/tile_data = PackedInt32Array(-458761, 0, 0, -393225, 0, 0, -327689, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("2_2x8r8")]
 position = Vector2(59, 20)
+
+[node name="Pistol" parent="." instance=ExtResource("3_jpsiv")]
+position = Vector2(176, 165)
+scale = Vector2(2, 2)

@@ -3,7 +3,10 @@
 [ext_resource type="Script" path="res://weapons/class/weapom_class.gd" id="1_vsycm"]
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_vsycm")
+
+[node name="Bullet_spawn" type="CollisionShape2D" parent="."]
 
 [node name="Capsule_spawn" type="CollisionShape2D" parent="."]
 
