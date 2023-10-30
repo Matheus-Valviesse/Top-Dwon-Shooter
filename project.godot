@@ -15,6 +15,11 @@ run/main_scene="res://scenes/worlds/test/level_test.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/screen_space_roughness_limiter/amount=0.25
+window/screen_space_roughness_limiter/limit=0.18
+
 [input]
 
 left={
@@ -51,3 +56,5 @@ take={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+anti_aliasing/screen_space_roughness_limiter/amount=0.61
+anti_aliasing/screen_space_roughness_limiter/limit=0.1

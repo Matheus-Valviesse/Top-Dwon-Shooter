@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://jq5klvi21g60"]
+[gd_scene load_steps=5 format=3 uid="uid://jq5klvi21g60"]
 
 [ext_resource type="Texture2D" uid="uid://tcbkdxju4sya" path="res://inventory/item/item_background.png" id="1_fwqdw"]
 [ext_resource type="Script" path="res://inventory/item/item_background.gd" id="2_01mkn"]
-[ext_resource type="Texture2D" path="res://weapons/sword 1/sword.png" id="3_vut3q"]
+[ext_resource type="FontFile" uid="uid://cpw5dbsw5yial" path="res://font/bit_potion.ttf" id="3_gp1wy"]
+
+[sub_resource type="FontVariation" id="FontVariation_kdejg"]
+base_font = ExtResource("3_gp1wy")
 
 [node name="BackgroundTexture" type="TextureRect"]
 custom_minimum_size = Vector2(40, 40)
@@ -26,13 +29,17 @@ offset_right = 10.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_vut3q")
 expand_mode = 2
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(19, 8)
 layout_mode = 0
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 40.0
-offset_bottom = 39.0
+offset_top = 25.0
+offset_right = 38.0
+offset_bottom = 41.0
+theme_override_fonts/font = SubResource("FontVariation_kdejg")
+theme_override_font_sizes/font_size = 16
+text = "+999"
+horizontal_alignment = 2
+vertical_alignment = 1
