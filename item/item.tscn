@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2tfa5oyidbq8"]
+
+[node name="Item" type="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
