@@ -1,0 +1,181 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8ffisnhygamm"]
+
+[ext_resource type="Script" path="res://inventory/inventory_container/inventory_container.gd" id="1_evvsu"]
+[ext_resource type="Texture2D" uid="uid://ceaysylesfmfa" path="res://inventory/inventory arts/inventario_weapon.png" id="1_unnec"]
+[ext_resource type="PackedScene" uid="uid://c455lsblqk1wy" path="res://inventory/button/button.tscn" id="4_xuqvf"]
+
+[sub_resource type="Animation" id="Animation_34jrs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3sdoa"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_65t1j"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwc6o"]
+_data = {
+"RESET": SubResource("Animation_34jrs"),
+"hide": SubResource("Animation_3sdoa"),
+"show": SubResource("Animation_65t1j")
+}
+
+[node name="InventoryContainer" type="Control" groups=["inventory"]]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -202.0
+offset_right = -378.0
+offset_bottom = -202.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_evvsu")
+
+[node name="VContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HContainer" type="HBoxContainer" parent="VContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VContainer"]
+layout_mode = 2
+texture = ExtResource("1_unnec")
+
+[node name="button" parent="VContainer/TextureRect" instance=ExtResource("4_xuqvf")]
+layout_mode = 1
+offset_left = 33.3333
+offset_top = 1.33333
+offset_right = -223.667
+offset_bottom = -112.667
+button_name = "weapon"
+
+[node name="button2" parent="VContainer/TextureRect" instance=ExtResource("4_xuqvf")]
+layout_mode = 1
+offset_left = 65.6667
+offset_top = 2.0
+offset_right = 65.6667
+offset_bottom = -112.0
+button_name = "equipament"
+
+[node name="button3" parent="VContainer/TextureRect" instance=ExtResource("4_xuqvf")]
+layout_mode = 1
+offset_left = 98.3333
+offset_top = 2.0
+offset_right = 98.3333
+offset_bottom = -112.0
+button_name = "potions"
+
+[node name="button4" parent="VContainer/TextureRect" instance=ExtResource("4_xuqvf")]
+layout_mode = 1
+offset_left = 130.333
+offset_top = 2.0
+offset_right = 130.333
+offset_bottom = -112.0
+button_name = "recourses"
+
+[node name="button5" parent="VContainer/TextureRect" instance=ExtResource("4_xuqvf")]
+layout_mode = 1
+offset_left = 163.333
+offset_top = 2.0
+offset_right = 163.333
+offset_bottom = -112.0
+button_name = "runes"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VContainer/TextureRect"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 32.0
+offset_right = 136.0
+offset_bottom = 100.0
+
+[node name="VContainerItens" type="VBoxContainer" parent="VContainer/TextureRect/ScrollContainer"]
+layout_mode = 2
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iwc6o")
+}

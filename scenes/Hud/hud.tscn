@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://dwoaqu7g8j5md"]
+[gd_scene load_steps=3 format=3 uid="uid://dwoaqu7g8j5md"]
+
+[ext_resource type="Script" path="res://scenes/Hud/hud.gd" id="1_srrxi"]
+[ext_resource type="PackedScene" uid="uid://b8ffisnhygamm" path="res://inventory/inventory_container/inventory_container.tscn" id="2_v476c"]
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_srrxi")
+
+[node name="InventoryContainer" parent="." instance=ExtResource("2_v476c")]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -379.0
+offset_top = 42.0
+offset_right = -379.0
+offset_bottom = 42.0
+grow_vertical = 1

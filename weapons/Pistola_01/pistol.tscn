@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3wjid0v5e51n"]
+[gd_scene load_steps=7 format=3 uid="uid://c3wjid0v5e51n"]
 
 [ext_resource type="PackedScene" uid="uid://bgeopa0a8rjfh" path="res://weapons/class/weapom_class.tscn" id="1_p5u3m"]
-[ext_resource type="Texture2D" uid="uid://bidhwih5vnkg1" path="res://weapons/Pistola_01/pistol_01.png" id="2_d5r7l"]
+[ext_resource type="Script" path="res://weapons/Pistola_01/pistol.gd" id="2_vcjn1"]
+[ext_resource type="Texture2D" uid="uid://ctcsfif4thowt" path="res://weapons/rifle 01/rifle.png" id="3_4wgal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwrjk"]
+size = Vector2(16, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qplmi"]
 size = Vector2(2, 3)
@@ -9,24 +13,22 @@ size = Vector2(2, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpa0a"]
 size = Vector2(1.5, 1.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwrjk"]
-size = Vector2(16, 12)
-
 [node name="Pistol" instance=ExtResource("1_p5u3m")]
+script = ExtResource("2_vcjn1")
 
-[node name="Bullet_spawn" parent="." index="0"]
+[node name="Weapon_colision" parent="." index="0"]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_rwrjk")
+
+[node name="Bullet_spawn" parent="." index="1"]
 position = Vector2(4, 0.5)
 shape = SubResource("RectangleShape2D_qplmi")
 debug_color = Color(1, 0.0470588, 0.235294, 0.419608)
 
-[node name="Capsule_spawn" parent="." index="1"]
+[node name="Capsule_spawn" parent="." index="2"]
 position = Vector2(-4, -1)
 shape = SubResource("RectangleShape2D_qpa0a")
 debug_color = Color(0.615686, 0.533333, 0.207843, 0.419608)
 
-[node name="Weapon_colision" parent="." index="2"]
-position = Vector2(-2, 3)
-shape = SubResource("RectangleShape2D_rwrjk")
-
 [node name="Sprite" parent="." index="3"]
-texture = ExtResource("2_d5r7l")
+texture = ExtResource("3_4wgal")

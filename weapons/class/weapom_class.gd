@@ -7,8 +7,11 @@ var capsule = preload("res://bullets/capsule.tscn")
 
 var weapon
 var bulletSpawn 
-@onready var sprite = $Sprite2D
-@onready var animation_weapon = $AnimationPlayer
+
+@onready var sprite = $Sprite
+@onready var animation_weapon = $Animation
+@onready var pistol = $"."
+@onready var point = $Bullet_spawn
 
 var can_fire = true
 var can_attack = true
@@ -26,7 +29,7 @@ var weapon_name : String
 var weapon_texture : String
 var bullet_name : String
 
-func _process(delta):
+func _process(_delta):
 	
 	if weapon_Style == "melee" and can_attack == true:
 		animation_weapon.play(weapon_name + "_idle")

@@ -1,16 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgeopa0a8rjfh"]
+[gd_scene load_steps=5 format=3 uid="uid://bgeopa0a8rjfh"]
 
 [ext_resource type="Script" path="res://weapons/class/weapom_class.gd" id="1_vsycm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdqbl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1h4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrlja"]
+
 [node name="Area2D" type="Area2D"]
 scale = Vector2(2, 2)
+collision_layer = 512
+collision_mask = 512
 script = ExtResource("1_vsycm")
 
+[node name="Weapon_colision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sdqbl")
+
 [node name="Bullet_spawn" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t1h4y")
 
 [node name="Capsule_spawn" type="CollisionShape2D" parent="."]
-
-[node name="Weapon_colision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jrlja")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctcsfif4thowt"
-path="res://.godot/imported/rifle.png-eb540d19439304cb9efed141f5baa7f3.ctex"
+uid="uid://bc1qqh4cycabj"
+path="res://.godot/imported/inventario_runes.png-c4939524db7b7d7a0496229e3718cd8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/Rifle_01/rifle.png"
-dest_files=["res://.godot/imported/rifle.png-eb540d19439304cb9efed141f5baa7f3.ctex"]
+source_file="res://inventory/inventory arts/inventario_runes.png"
+dest_files=["res://.godot/imported/inventario_runes.png-c4939524db7b7d7a0496229e3718cd8e.ctex"]
 
 [params]
 

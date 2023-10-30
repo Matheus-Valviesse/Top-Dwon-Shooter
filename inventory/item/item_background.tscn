@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://jq5klvi21g60"]
+
+[ext_resource type="Texture2D" uid="uid://tcbkdxju4sya" path="res://inventory/item/item_background.png" id="1_fwqdw"]
+[ext_resource type="Script" path="res://inventory/item/item_background.gd" id="2_01mkn"]
+[ext_resource type="Texture2D" path="res://weapons/sword 1/sword.png" id="3_vut3q"]
+
+[node name="BackgroundTexture" type="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_fwqdw")
+script = ExtResource("2_01mkn")
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -7.0
+offset_right = 10.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vut3q")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 39.0

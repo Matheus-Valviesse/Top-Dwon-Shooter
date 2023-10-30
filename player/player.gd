@@ -13,6 +13,7 @@ var moveSpeed = 400
 @onready var hand = $Arm/Hand
 
 func _physics_process(delta):
+
 	get_input()
 	move_and_slide()
 	hand_move(delta)
@@ -21,6 +22,12 @@ func get_input():
 	var input_direction = Input.get_vector("left","rigth","up","down")
 	velocity = input_direction * moveSpeed
 	
+	if Input.is_action_just_pressed("take"):
+		if weapon != null:
+			get_tree().call_group("inventory","insert_item",weapon.item_type,weapon.weapon_name,weapon.weapon_texture, weapon)
+			weapon.queue_free()
+			weapon = null
+			
 func hand_move(delta):
 	
 	var mouse_pos = get_global_mouse_position() 
@@ -55,3 +62,10 @@ func hand_move(delta):
 			else:
 				equippedWeapon.sprite.flip_h = true
 	
+func _on_item_area_colision_entered(area):
+	weapon = area
+
+
+
+func _on_item_area_colision_area_exited(area):
+	weapon = null

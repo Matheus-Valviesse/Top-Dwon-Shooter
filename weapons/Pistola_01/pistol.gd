@@ -1,11 +1,7 @@
 extends Weapon
 
-
-@onready var pistol = $"."
-@onready var point = $Bullet_spawn
-
 func _ready():
-	weapon_texture = "res://weapons/Pistola_01/pistol_01.png"
+	weapon_texture = "res://weapons/Pistola_01/pistol.png"
 	initate()
 	
 func initate():
@@ -29,10 +25,6 @@ func weapon_shoot():
 		shoot(weapon_Style)
 
 
-func create_weapon(damage,ammo,maxAmmo):
-	
-	damage = damage
-	ammo = ammo
-	maxAmmo = maxAmmo
+
 	
 	
