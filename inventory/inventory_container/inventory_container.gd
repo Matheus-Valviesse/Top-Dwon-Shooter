@@ -25,14 +25,19 @@ func insert_item(type,name,image,data,status):
 
 	if type == "potion" or type == "recourses":
 		
-		var exist_index
+		var exist_index = -1
 		
 		for datas in inventory:
 			exist_index = datas.find(name)
-			
-		if exist_index == null:
-			exist_index = -1
+			if exist_index != -1:
+				print(exist_index)
+				break
+				
+		print("--------------------------")
+		print(exist_index)
+		print("--------------------------")
 		if exist_index != -1 :
+			print('aqui')
 			inventory[exist_index][4][2] += status[2]
 			return
 		
