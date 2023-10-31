@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmwp74v5go1ih"]
+[gd_scene load_steps=10 format=3 uid="uid://dmwp74v5go1ih"]
 
 [ext_resource type="Texture2D" uid="uid://dcakkpvu70drn" path="res://assets/jawbreaker_tiles.png" id="1_ipxre"]
 [ext_resource type="PackedScene" uid="uid://e35smjp3yxf0" path="res://player/player.tscn" id="2_2x8r8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6dty25s4o1i7" path="res://weapons/rifle 01/assault_rifle.tscn" id="4_6fg25"]
 [ext_resource type="PackedScene" uid="uid://128rmudbj72o" path="res://weapons/Shoot-gun_01/combat_shoot-gun.tscn" id="5_nwe6w"]
 [ext_resource type="PackedScene" uid="uid://dwoaqu7g8j5md" path="res://scenes/Hud/hud.tscn" id="6_v6hmy"]
+[ext_resource type="PackedScene" uid="uid://c2tfa5oyidbq8" path="res://item/item.tscn" id="7_4u4uk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lprlq"]
 texture = ExtResource("1_ipxre")
@@ -108,3 +109,26 @@ position = Vector2(358, 66)
 position = Vector2(392, 122)
 
 [node name="Hud" parent="." instance=ExtResource("6_v6hmy")]
+
+[node name="Item" parent="." instance=ExtResource("7_4u4uk")]
+position = Vector2(586, 308)
+item_name = "hp potion"
+item_type = "potion"
+item_amount = 3
+item_status = [null, null, 3]
+
+[node name="Item2" parent="." instance=ExtResource("7_4u4uk")]
+position = Vector2(945, 220)
+item_name = "mana potion"
+item_texture = "res://assets/Potion/mana potion.png"
+item_type = "potion"
+item_amount = 3
+item_status = [null, null, 3]
+
+[node name="Item3" parent="." instance=ExtResource("7_4u4uk")]
+position = Vector2(918, 330)
+item_name = "mana potion"
+item_texture = "res://assets/Potion/mana potion.png"
+item_type = "potion"
+item_amount = 3
+item_status = [null, null, 3]

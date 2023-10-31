@@ -21,18 +21,35 @@ func set_inventory_window(name):
 	set_itens(name)
 	
 	
-func insert_item(type,name,image,data):
+func insert_item(type,name,image,data,status):
 
-	inventory.append([name,image,type,data.get_path()])
-	
+	if type == "potion" or type == "recourses":
+		
+		var exist_index
+		
+		for datas in inventory:
+			exist_index = datas.find(name)
+			
+		if exist_index == null:
+			exist_index = -1
+		if exist_index != -1 :
+			inventory[exist_index][4][2] += status[2]
+			return
+		
+		else:
+			
+			inventory.append([name,image,type,data.get_path(),status])
+	else:
+		
+		inventory.append([name,image,type,data.get_path(),status])
+	print(inventory)
 	if inventory_window == type:
 		set_itens(inventory_window)
+	
+func valid_amount(type,value):
 
-func valid_amount(value):
-	print(inventory)
-	print(value)
-	if "amount" in str(value) :  
-		return value
+	if type == "potion" or type == "recourses":  
+		return value[2]
 	else :
 		return 1
 	
@@ -51,8 +68,9 @@ func set_itens(category):
 	
 
 	for i in arr_itens:
-		
+
 		var item_instantiate =  load_item.instantiate()
-		item_instantiate.set_item(i[0],i[1],i[3],i[2],valid_amount(i[3]))
+		item_instantiate.set_item(i[0],i[1],i[3],i[2],valid_amount(i[2],i[4]),i[4])
 		v_container_itens.add_child(item_instantiate)
+		item_instantiate.update_item(i[2])
 		

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var weapon = null
+var take_item = null
 var weapon_status
 var equippedWeapon
 var arma_instance 
@@ -23,10 +23,28 @@ func get_input():
 	velocity = input_direction * moveSpeed
 	
 	if Input.is_action_just_pressed("take"):
-		if weapon != null:
-			get_tree().call_group("inventory","insert_item",weapon.item_type,weapon.weapon_name,weapon.weapon_texture, weapon)
-			weapon.queue_free()
-			weapon = null
+		if take_item != null:
+			var exist = "weapon_status" in take_item
+			
+			if exist != false:
+				
+				get_tree().call_group("inventory","insert_item",
+				take_item.weapon_status["type"],
+				take_item.weapon_status["weapon_name"],
+				take_item.weapon_status["weapon_texture"], 
+				take_item, 
+				take_item.weapon_status)
+			else :
+			
+				get_tree().call_group("inventory","insert_item",
+				take_item.item_type,
+				take_item.item_name,
+				take_item.item_texture, 
+				take_item, 
+				take_item.item_status)
+				
+			take_item.queue_free()
+			take_item = null
 			
 func hand_move(delta):
 	
@@ -63,9 +81,10 @@ func hand_move(delta):
 				equippedWeapon.sprite.flip_h = true
 	
 func _on_item_area_colision_entered(area):
-	weapon = area
+	
+	take_item = area
 
 
 
 func _on_item_area_colision_area_exited(area):
-	weapon = null
+	take_item = null

@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2tfa5oyidbq8"]
+[gd_scene load_steps=4 format=3 uid="uid://c2tfa5oyidbq8"]
 
 [ext_resource type="Script" path="res://item/item.gd" id="1_imr6l"]
+[ext_resource type="Texture2D" uid="uid://cxh2wbjbgl47p" path="res://assets/Potion/hp potion.png" id="2_5d34w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0quw"]
+radius = 13.0
 
 [node name="Item" type="Area2D"]
+scale = Vector2(1.3, 1.3)
+collision_layer = 512
+collision_mask = 512
 script = ExtResource("1_imr6l")
+item_status = [null, null, null]
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_5d34w")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s0quw")

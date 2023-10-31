@@ -10,8 +10,9 @@ class_name  item
 var item_name : String
 var item_texture : String
 var item_type : String
-var item_info
 var item_amount = 0
+var item_info
+var item_status
 
 func _ready():
 
@@ -19,18 +20,23 @@ func _ready():
 	update_item(item_type)
 	
 func update_item(type):
+
 	if type == 'rune' or type == 'weapon' or type == 'equipament':
 		label.set_visible(false)
 	else:
-		label.set_visible(false)
-		label.text = item_amount
+		label.set_visible(true)
+		label.text = str(item_amount)
 		
 	
-func set_item(name,texture,info,type,amount):
+func set_item(name,texture,info,type,amount,status):
 	item_name = name
 	item_texture = texture
 	item_info = info
 	item_type = type
 	item_amount = item_amount + amount
+	item_status = status
+	
+	
+
 
 

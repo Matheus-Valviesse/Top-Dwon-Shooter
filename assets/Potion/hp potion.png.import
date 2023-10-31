@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2n0kjs4ikxlv"
-path="res://.godot/imported/inventario_potions.png-877f8d932fe75c1322b8eed58d1ee250.ctex"
+uid="uid://cxh2wbjbgl47p"
+path="res://.godot/imported/hp potion.png-af127fe8769b63fab93e11697bf4cd00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/inventory arts/inventario_potions.png"
-dest_files=["res://.godot/imported/inventario_potions.png-877f8d932fe75c1322b8eed58d1ee250.ctex"]
+source_file="res://assets/Potion/hp potion.png"
+dest_files=["res://.godot/imported/hp potion.png-af127fe8769b63fab93e11697bf4cd00.ctex"]
 
 [params]
 

@@ -147,7 +147,7 @@ offset_left = 98.3333
 offset_top = 2.0
 offset_right = 98.3333
 offset_bottom = -112.0
-button_name = "potions"
+button_name = "potion"
 
 [node name="button4" parent="VContainer/TextureRect" instance=ExtResource("4_xuqvf")]
 layout_mode = 1

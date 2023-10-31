@@ -13,7 +13,7 @@ size = Vector2(1.25, 1.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oklkp"]
 size = Vector2(1.625, 1.5)
 
-[node name="Area2D" instance=ExtResource("1_6wfkh")]
+[node name="AssaultRifle" instance=ExtResource("1_6wfkh")]
 script = ExtResource("2_1yt8j")
 
 [node name="Weapon_colision" parent="." index="0"]
