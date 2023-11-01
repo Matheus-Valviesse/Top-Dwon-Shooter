@@ -1,5 +1,6 @@
 extends Control
 
+var values = [1,2,3,"",""]
 var inventory_window = "weapon"
 @onready var inventory_background = $VContainer/TextureRect
 @onready var texture_rect = $VContainer/TextureRect
