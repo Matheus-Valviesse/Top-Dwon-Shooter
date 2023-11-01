@@ -30,14 +30,10 @@ func insert_item(type,name,image,data,status):
 		for datas in inventory:
 			exist_index = datas.find(name)
 			if exist_index != -1:
-				print(exist_index)
 				break
 				
-		print("--------------------------")
-		print(exist_index)
-		print("--------------------------")
+
 		if exist_index != -1 :
-			print('aqui')
 			inventory[exist_index][4][2] += status[2]
 			return
 		
@@ -47,7 +43,7 @@ func insert_item(type,name,image,data,status):
 	else:
 		
 		inventory.append([name,image,type,data.get_path(),status])
-	print(inventory)
+		
 	if inventory_window == type:
 		set_itens(inventory_window)
 	
