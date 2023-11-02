@@ -1,6 +1,5 @@
 extends Control
 
-var values = [1,2,3,"",""]
 var inventory_window = "weapon"
 @onready var inventory_background = $VContainer/TextureRect
 @onready var texture_rect = $VContainer/TextureRect
@@ -14,8 +13,8 @@ func _ready():
 
 	set_inventory_window(inventory_window)
 	
-	
 func set_inventory_window(name):
+	
 	inventory_window = name 
 	var inventory_texture = load("res://inventory/inventory arts/inventario_"+name+".png")
 	inventory_background.set_texture(inventory_texture)
@@ -23,14 +22,15 @@ func set_inventory_window(name):
 	
 	
 func insert_item(type,name,image,data,status):
-
+	
 	if type == "potion" or type == "recourses":
 		
 		var exist_index = -1
 		
-		for datas in inventory:
-			exist_index = datas.find(name)
-			if exist_index != -1:
+		for index in range(inventory.size()):
+			var item = inventory[index]
+			if item[0] == name:
+				exist_index = index
 				break
 				
 
