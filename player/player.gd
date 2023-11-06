@@ -81,7 +81,6 @@ func hand_move(delta):
 				equippedWeapon.sprite.flip_h = true
 	
 func _on_item_area_colision_entered(area):
-	
 	take_item = area
 
 

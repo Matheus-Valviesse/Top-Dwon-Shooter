@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpqf8u66gvkgj"
-path="res://.godot/imported/inventario_potion.png-eb60bd698003ed900e1292b083fcdaf8.ctex"
+uid="uid://c3q2c45u30h5s"
+path="res://.godot/imported/inventario_ammo.png-41b33275370f45edc1ab0abad6a0bdd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/inventory arts/inventario_potion.png"
-dest_files=["res://.godot/imported/inventario_potion.png-eb60bd698003ed900e1292b083fcdaf8.ctex"]
+source_file="res://inventory/inventory arts/inventario_ammo.png"
+dest_files=["res://.godot/imported/inventario_ammo.png-41b33275370f45edc1ab0abad6a0bdd1.ctex"]
 
 [params]
 
