@@ -95,7 +95,6 @@ func _on_animation_finished(anim_name):
 
 func _input(event):
 	
-	
 	if event.is_action_pressed("mouse_rigth"):
 		for child in v_container_itens.get_children():
 			

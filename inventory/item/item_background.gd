@@ -6,7 +6,6 @@ class_name  item
 @onready var item_icon = $ItemTexture
 @onready var label = $Label
 
-@onready var item_index = get_index()
 
 var item_name : String
 var item_texture : String
