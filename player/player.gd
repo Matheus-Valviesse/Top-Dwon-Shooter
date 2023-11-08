@@ -45,7 +45,7 @@ func get_input():
 				
 			take_item.queue_free()
 			take_item = null
-			
+	
 func hand_move(delta):
 	
 	var mouse_pos = get_global_mouse_position() 
@@ -55,8 +55,6 @@ func hand_move(delta):
 	if equippedWeapon != null:
 		
 		if equippedWeapon.can_attack == true:
-			
-			
 			
 			# Atualiza o angulo da arma para seguir o mouse
 			var target_rotation = atan2(mouse_pos.y - equippedWeapon.global_position.y, mouse_pos.x - equippedWeapon.global_position.x) 
@@ -69,7 +67,7 @@ func hand_move(delta):
 			equippedWeapon.global_position = hand.global_position
 		
 		#flipa o sprite dependendo da posicao do mouse
-		if equippedWeapon.weapon_type == "range":
+		if equippedWeapon.weapon_status["weapon_type"] == "range":
 			if mouse_pos.x > player.global_position.x:
 				equippedWeapon.sprite.flip_v = false
 			else:
@@ -81,9 +79,21 @@ func hand_move(delta):
 				equippedWeapon.sprite.flip_h = true
 	
 func _on_item_area_colision_entered(area):
-	take_item = area
-
-
-
+	if area.z_index == 0:
+		take_item = area
+	
 func _on_item_area_colision_area_exited(area):
 	take_item = null
+
+func set_weapon(weapon,type):
+	var instantiate_weapon
+	
+	if instantiate_weapon != null:
+		instantiate_weapon.queue_free()
+	if equippedWeapon != null:
+		equippedWeapon .queue_free()
+	
+	if type == 'spawn':
+		instantiate_weapon = weapon
+		instantiate_weapon.global_position =  hand.global_position
+		equippedWeapon = instantiate_weapon

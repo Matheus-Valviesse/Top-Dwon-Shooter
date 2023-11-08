@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8ffisnhygamm"]
+[gd_scene load_steps=10 format=3 uid="uid://b8ffisnhygamm"]
 
 [ext_resource type="Script" path="res://inventory/inventory_container/inventory_container.gd" id="1_evvsu"]
 [ext_resource type="Texture2D" uid="uid://b37tcyoy3qnam" path="res://inventory/inventory arts/inventario_weapon.png" id="1_unnec"]
@@ -94,132 +94,6 @@ _data = {
 "RESET": SubResource("Animation_34jrs"),
 "hide": SubResource("Animation_3sdoa"),
 "show": SubResource("Animation_65t1j")
-}
-
-[sub_resource type="Animation" id="Animation_7w6n8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-55.3333, 24.6667)]
-}
-
-[sub_resource type="Animation" id="Animation_sq7b0"]
-resource_name = "hide"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-55.3333, 24.6667), Vector2(1.33335, 24.6667)]
-}
-
-[sub_resource type="Animation" id="Animation_1d5cp"]
-resource_name = "show"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.33335, 24.6667), Vector2(-55.3333, 24.6667)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5gjsh"]
-_data = {
-"RESET": SubResource("Animation_7w6n8"),
-"hide": SubResource("Animation_sq7b0"),
-"show": SubResource("Animation_1d5cp")
 }
 
 [node name="InventoryContainer" type="Control" groups=["inventory"]]
@@ -318,8 +192,7 @@ libraries = {
 "": SubResource("AnimationLibrary_iwc6o")
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="Weapons" type="TextureRect" parent="."]
 z_index = 200
 layout_mode = 0
 offset_left = -55.3333
@@ -328,12 +201,7 @@ offset_right = 0.666698
 offset_bottom = 113.667
 texture = ExtResource("4_bprfk")
 
-[node name="WeaponsAnimation" type="AnimationPlayer" parent="TextureRect"]
-libraries = {
-"": SubResource("AnimationLibrary_5gjsh")
-}
-
-[node name="InventoryItem" parent="TextureRect" instance=ExtResource("5_cd3rd")]
+[node name="InventoryItem" parent="Weapons" instance=ExtResource("5_cd3rd")]
 layout_mode = 0
 offset_left = 16.3333
 offset_top = 10.6667
@@ -341,7 +209,7 @@ offset_right = 56.3333
 offset_bottom = 50.6667
 scale = Vector2(0.7, 0.7)
 
-[node name="InventoryItem2" parent="TextureRect" instance=ExtResource("5_cd3rd")]
+[node name="InventoryItem2" parent="Weapons" instance=ExtResource("5_cd3rd")]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 45.3333

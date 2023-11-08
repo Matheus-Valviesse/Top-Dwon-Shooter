@@ -16,7 +16,7 @@ size = Vector2(2, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6mir"]
 size = Vector2(11, 20)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(3, 3)
 collision_mask = 513
 script = ExtResource("1_e0u4j")
@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_pkwit")
 debug_color = Color(0.858824, 0, 0.313726, 0.419608)
 
 [node name="Hand" type="CollisionShape2D" parent="Arm"]
-position = Vector2(6, 0)
+position = Vector2(11.6667, 0)
 shape = SubResource("RectangleShape2D_ed265")
 
 [node name="item_area_colision" type="Area2D" parent="."]
