@@ -57,7 +57,7 @@ func insert_item(type,name,image,data,status):
 		set_itens(inventory_window)
 	
 func valid_path(pathOrNode):
-	print(pathOrNode)
+
 	if pathOrNode is NodePath:
 		return pathOrNode
 	elif pathOrNode is String:
@@ -116,14 +116,21 @@ func _input(event):
 					var exist_index 
 					
 					for index in range(inventory.size()):
+						
 						var item = inventory[index]
 						if item[0] == child.item_name:
 							exist_index = index
 							break
 							
 					var item = inventory[exist_index]
+					var slot_is_null = weapons.find(null)
+
 					set_in_slot(item,exist_index)
-					spawn_weapon(exist_index)
+					
+					if slot_is_null != -1:
+						print(slot_is_null)
+						spawn_weapon(slot_is_null)
+					
 			var slots 
 			
 			match inventory_window:
@@ -149,35 +156,39 @@ func _input(event):
 							match inventory_window:
 								'weapon':
 									weapons[item_i.item_index] = null
-									
-							spawn_weapon(item_i.item_index)	
+
+							spawn_weapon(item_i.item_index - 1)
 							item_i.reset_item()
 							
-	if event.is_action_pressed("weapon_1") and weapon_value != 1 and weapons[0] != null:
+	if event.is_action_pressed("weapon_1") and weapon_value != 0 and weapons[0] != null:
 		spawn_weapon(0)
-	if event.is_action_pressed("weapon_2") and weapon_value != 2 and weapons[1] != null:
+	if event.is_action_pressed("weapon_2") and weapon_value != 1 and weapons[1] != null:
 		spawn_weapon(1)
 	
 func spawn_weapon(value):
-	weapon_value = value + 1
-	var weapon
-	var weapon_instance
-	
-	if weapon != null:
-		weapon.queue_free()
-	if  weapon_instance != null:
-		weapon_instance.queue_free()
+
+		weapon_value = value
+		var weapon
+		var weapon_instance
 		
-	if weapons[value] != null:
-		weapon = load(weapons[value][3])
-		weapon_instance = weapon.instantiate()
-		weapon_instance.z_index = 99
-		get_parent().get_parent().get_node(".").add_child(weapon_instance)
+		if weapon != null:
+			weapon.queue_free()
+		if  weapon_instance != null:
+			weapon_instance.queue_free()
+			
+		print(weapon_value)
 		
-		get_tree().call_group("player","set_weapon",weapon_instance,'spawn')
-		return
+		if weapons[weapon_value] != null:
+			weapon = load(weapons[weapon_value][3])
+			weapon_instance = weapon.instantiate()
+			weapon_instance.z_index = 99
+			get_parent().get_parent().get_node(".").add_child(weapon_instance)
+			
+			get_tree().call_group("player","set_weapon",weapon_instance,'spawn')
+			return
+			
+		get_tree().call_group("player","set_weapon",weapon_instance,'delete')
 		
-	get_tree().call_group("player","set_weapon",weapon_instance,'delete')
 func _process(delta):
 	pass
 	
