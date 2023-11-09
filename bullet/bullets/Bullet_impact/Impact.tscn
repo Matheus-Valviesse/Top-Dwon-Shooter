@@ -1,0 +1,105 @@
+[gd_scene load_steps=21 format=3 uid="uid://b5gfpjgav051h"]
+
+[ext_resource type="Script" path="res://Scripts/impact.gd" id="1_rq7n1"]
+[ext_resource type="Texture2D" uid="uid://cqf2b3a5c752f" path="res://bullet/bullets/Bullet_impact/bolt/hits-1-1.png" id="2_qx5kl"]
+[ext_resource type="Texture2D" uid="uid://dyyb2ubsb0bof" path="res://bullet/bullets/Bullet_impact/bolt/hits-1-2.png" id="3_vkojp"]
+[ext_resource type="Texture2D" uid="uid://chhksxb0gcdpp" path="res://bullet/bullets/Bullet_impact/bolt/hits-1-3.png" id="4_eat7w"]
+[ext_resource type="Texture2D" uid="uid://bex6llqjrplrm" path="res://bullet/bullets/Bullet_impact/bolt/hits-1-4.png" id="5_qslp2"]
+[ext_resource type="Texture2D" uid="uid://c203rxug87aqp" path="res://bullet/bullets/Bullet_impact/bolt/hits-1-5.png" id="6_gcgfw"]
+[ext_resource type="Texture2D" uid="uid://eajtwhgcikiv" path="res://bullet/bullets/Bullet_impact/charge/hits-3-1.png" id="7_uu18r"]
+[ext_resource type="Texture2D" uid="uid://d05r36cebl0ac" path="res://bullet/bullets/Bullet_impact/charge/hits-3-2.png" id="8_rr0c5"]
+[ext_resource type="Texture2D" uid="uid://dsvrsm2ajb4tt" path="res://bullet/bullets/Bullet_impact/spark/hits-2-1.png" id="9_odul0"]
+[ext_resource type="Texture2D" uid="uid://ch2n84ud723lj" path="res://bullet/bullets/Bullet_impact/spark/hits-2-2.png" id="10_abvoo"]
+[ext_resource type="Texture2D" uid="uid://d3471a0fcmjdr" path="res://bullet/bullets/Bullet_impact/spark/hits-2-3.png" id="11_uaofe"]
+[ext_resource type="Texture2D" uid="uid://cuyxkmlqm1u61" path="res://bullet/bullets/Bullet_impact/spark/hits-2-4.png" id="12_a768n"]
+[ext_resource type="Texture2D" uid="uid://fyerxr7ij0jf" path="res://bullet/bullets/Bullet_impact/spark/hits-2-5.png" id="13_6ffom"]
+[ext_resource type="Texture2D" uid="uid://b8ntlwt6503te" path="res://bullet/bullets/Bullet_impact/spark/hits-2-6.png" id="14_rxje0"]
+[ext_resource type="Texture2D" uid="uid://dd7bd8q8i61n8" path="res://bullet/bullets/Bullet_impact/spark/hits-2-7.png" id="15_gg2t8"]
+
+[sub_resource type="Animation" id="Animation_xm1b4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qx5kl")]
+}
+
+[sub_resource type="Animation" id="Animation_ryx7e"]
+resource_name = "impact_bolt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_qx5kl"), ExtResource("3_vkojp"), ExtResource("4_eat7w"), ExtResource("5_qslp2"), ExtResource("6_gcgfw")]
+}
+
+[sub_resource type="Animation" id="Animation_skbnc"]
+resource_name = "impact_charge"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_uu18r"), ExtResource("8_rr0c5"), ExtResource("4_eat7w"), ExtResource("5_qslp2"), ExtResource("6_gcgfw")]
+}
+
+[sub_resource type="Animation" id="Animation_2wsrx"]
+resource_name = "impact_spark"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_odul0"), ExtResource("10_abvoo"), ExtResource("11_uaofe"), ExtResource("12_a768n"), ExtResource("13_6ffom"), ExtResource("14_rxje0"), ExtResource("15_gg2t8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbg1i"]
+_data = {
+"RESET": SubResource("Animation_xm1b4"),
+"impact_bolt": SubResource("Animation_ryx7e"),
+"impact_charge": SubResource("Animation_skbnc"),
+"impact_spark": SubResource("Animation_2wsrx")
+}
+
+[node name="Impact" type="Area2D"]
+z_index = 4
+scale = Vector2(2.2, 2.2)
+script = ExtResource("1_rq7n1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_qx5kl")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qbg1i")
+}
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

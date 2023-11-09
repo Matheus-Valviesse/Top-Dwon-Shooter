@@ -17,5 +17,6 @@ func initate():
 
 func weapon_shoot():
 	if can_fire:
+		animation_weapon.speed_scale = 2.8
 		bulletSpawn = point
 		shoot(weapon_status["weapon_Style"])

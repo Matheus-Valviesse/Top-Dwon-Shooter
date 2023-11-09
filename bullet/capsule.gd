@@ -2,10 +2,11 @@ extends RigidBody2D
 
 @onready var capsule = $"."
 @onready var timer = $Timer
-@onready var sprite = $Capsule_Sprite
+@onready var sprite = $Capsule_sprite
 @onready var animation = $Animation
 
-var rand_jump = randf_range(-165, -180)
+
+var rand_jump = randf_range(-270, -300)
 var direction = 0
 var rand_timer = randf_range(0.76, 0.82)
 var actual_y

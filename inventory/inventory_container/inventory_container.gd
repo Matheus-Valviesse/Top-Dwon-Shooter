@@ -128,7 +128,6 @@ func _input(event):
 					set_in_slot(item,exist_index)
 					
 					if slot_is_null != -1:
-						print(slot_is_null)
 						spawn_weapon(slot_is_null)
 					
 			var slots 
@@ -176,7 +175,6 @@ func spawn_weapon(value):
 		if  weapon_instance != null:
 			weapon_instance.queue_free()
 			
-		print(weapon_value)
 		
 		if weapons[weapon_value] != null:
 			weapon = load(weapons[weapon_value][3])

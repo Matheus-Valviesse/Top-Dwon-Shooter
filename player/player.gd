@@ -46,6 +46,15 @@ func get_input():
 			take_item.queue_free()
 			take_item = null
 	
+	if equippedWeapon != null:
+	
+		if equippedWeapon.weapon_status["weapon_Style"]== "multShoot":
+			if Input.is_action_pressed("shoot") and equippedWeapon != null:
+				equippedWeapon.weapon_shoot()
+		elif equippedWeapon.weapon_status["weapon_Style"] == "oneShoot" or equippedWeapon.weapon_status["weapon_Style"] == "barrageShoot" or equippedWeapon.weapon_status["weapon_Style"] == "melee":
+			if Input.is_action_just_pressed("shoot") and equippedWeapon != null:
+				equippedWeapon.weapon_shoot()
+	
 func hand_move(delta):
 	
 	var mouse_pos = get_global_mouse_position() 
@@ -83,7 +92,8 @@ func _on_item_area_colision_entered(area):
 		take_item = area
 	
 func _on_item_area_colision_area_exited(area):
-	take_item = null
+	if area == take_item:
+		take_item = null
 
 func set_weapon(weapon,type):
 	var instantiate_weapon

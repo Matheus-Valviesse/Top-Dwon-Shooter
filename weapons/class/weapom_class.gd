@@ -2,15 +2,16 @@ extends Area2D
 
 class_name Weapon
 
-var Bullet = preload("res://bullets/bullet.tscn")
-var capsule = preload("res://bullets/capsule.tscn")
+var Bullet = preload("res://bullet/Bullet.tscn")
+var capsule = preload("res://bullet/capsule.tscn")
 
-var weapon
-var bulletSpawn 
+@onready var weapon = $"."
+@onready var bulletSpawn = $Bullet_spawn
 
 @onready var sprite = $Sprite
 @onready var animation_weapon = $Animation
 @onready var point = $Bullet_spawn
+@onready var capsule_spawn = $Capsule_spawn
 
 var can_fire = true
 var can_attack = true
@@ -46,7 +47,7 @@ func shoot(type):
 		else:	
 			animation_weapon.play("shoot")
 			
-		if weapon_status["weapon_type"] == "barrageShoot":
+		if weapon_status["weapon_Style"] == "barrageShoot":
 			var num_projeteis = 8
 	
 			for i in range(num_projeteis):
@@ -56,7 +57,7 @@ func shoot(type):
 				var random_speed = randf_range(weapon_status["bullet-speed"] - 50, weapon_status["bullet-speed"] + 50)  # Intervalo de -50 a 50 da velocidade padrão
 				spawned_bullet.rotation = global_rotation + random_angle
 				spawned_bullet.position = bulletSpawn.global_position
-				spawned_bullet.velocity = Vector2(random_speed, 0).rotated(global_rotation + random_angle)   
+				spawned_bullet.velocity = Vector2(weapon_status["bullet_speed"] + random_speed, 0).rotated(global_rotation + random_angle)   
 				spawned_bullet.bullet_anim(weapon_status["bullet_name"])
 		else:
 			var spawned_bullet = Bullet.instantiate()
@@ -69,9 +70,8 @@ func shoot(type):
 			
 	
 		var spawn_capsule = capsule.instantiate()
-	
+		
 		get_parent().add_child(spawn_capsule)
-		var capsule_spawn = $capsule_spawn
 		spawn_capsule.position = capsule_spawn.global_position
 		
 	if weapon_status["style"] == "melee":
@@ -82,7 +82,7 @@ func reload():
 	if weapon_status["ammo"] < weapon_status["maxAmmo"] :
 		weapon_status["ammo"] += weapon_status["maxAmmo"]
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_finished(anim_name):
 	if anim_name == "shoot" or anim_name == "shoot-2":
 		can_fire = true
 		

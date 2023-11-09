@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhuc35wfsv8ef"]
 
-[ext_resource type="Script" path="res://bullets/bullet.gd" id="1_3re1c"]
+[ext_resource type="Script" path="res://bullet/bullet.gd" id="1_d53ox"]
 
 [node name="Bullet" type="Area2D"]
-script = ExtResource("1_3re1c")
+script = ExtResource("1_d53ox")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
